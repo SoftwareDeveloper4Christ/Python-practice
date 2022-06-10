@@ -1,15 +1,36 @@
-# Read text from a file, and count the occurence of words in that text
-# Example:
-# count_words("The cake is done. It is a big cake!") 
-# --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
+# Building Rock-Paper-Scissors game
 
-y=open("story.txt")
-file=y.read()
-word_count=file.split(" ")
+# First, we import necessary modules
+import random
 
-x={}
-for word in word_count:
-    x[word]=y.get(word, 0)+1
+#Create a list to store all possible options
+game_list = ["Rock","Paper","Scissors"]
+    
+CPU_list = random.choice(game_list)
 
-print(x)
+# Take in user input
+Player = input("Enter an option between (Rock, Paper or Scissors): ")
 
+# Determining a Winner
+while True:
+    if Player == CPU_list:
+        print("It is a tie!")
+    elif Player != game_list:
+        print("Error")
+    Player = input("Enter an option between (Rock, Paper or Scissors): ")
+    
+    if Player == "Rock":
+        if CPU_list == "Scissors":
+            print("Rock beats Scissors. You win!!!")
+        else:
+            print("Paper beats Rock. You lose!")
+    elif Player == "Paper":
+        if CPU_list == "Rock":
+            print("Paper beats Rock. You win!!!")
+        else:
+            print("Scissors beats Paper. You lose!")
+    elif Player == "Scissors":
+        if CPU_list == "Paper":
+            print("Scissors beats Paper. You win!!!")
+        else:
+            print("Rock beats Scissors. You lose!")
